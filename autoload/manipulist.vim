@@ -34,13 +34,13 @@ function! s:undo_ll() abort
 endfunction
 
 function! s:undo_qf() abort
-  let history = get(w:, 'll_history', [])
+  let history = get(w:, 'qf_history', [])
   if !empty(history)
     call setloclist(remove(history, -1), 'r')
   endif
 endfunction
 
-function! s:remove_qq(fline, lline) abort
+function! s:remove_qf(fline, lline) abort
   let candidates = getqflist()
   let w:qf_history = get(w:, 'qf_history', [])
   call add(w:qf_history, copy(candidates))
